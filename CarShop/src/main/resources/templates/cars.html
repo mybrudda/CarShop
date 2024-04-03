@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>CarList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Car List</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Condition</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Use th:each to iterate over cars -->
+                <tr th:each="car : ${cars}">
+                    <!-- Use th:text to display car properties -->
+                    <td th:text="${car.imagePath}"></td>
+                    <td th:text="${car.model}"></td>
+                    <td th:text="${car.year}"></td>
+                    <td th:text="${car.condition}"></td>
+                    <td th:text="${car.price}"></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS (optional, for certain components) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        .center-form {
+            margin: 0 auto; 
+            width: 50%; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 mb-4 text-center">Add Car</h2>
+        <form action="/cars/save" method="post" th:object="${car}" class="center-form needs-validation" novalidate>
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" class="form-control small-input" id="model" th:field="*{model}" required>
+                <div class="invalid-feedback">Please provide a model.</div>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" class="form-control small-input" id="year" th:field="*{year}" required>
+                <div class="invalid-feedback">Please provide a valid year.</div>
+            </div>
+            <div class="form-group">
+                <label for="condition">Condition:</label>
+                <input type="text" class="form-control small-input" id="condition" th:field="*{condition}" required>
+                <div class="invalid-feedback">Please provide a condition.</div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" class="form-control small-input" id="price" th:field="*{price}" required>
+                <div class="invalid-feedback">Please provide a price.</div>
+            </div>
+            <div class="form-group">
+                <label for="imagePath">Image Path:</label>
+                <input type="text" class="form-control small-input" id="imagePath" th:field="*{imagePath}" required>
+                <div class="invalid-feedback">Please provide an image path.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

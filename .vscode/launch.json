@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CarShopApplication<CarShop>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "backend.CarShop.CarShopApplication",
+            "projectName": "CarShop",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

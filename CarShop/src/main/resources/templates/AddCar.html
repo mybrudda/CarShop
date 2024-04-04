@@ -16,15 +16,16 @@
 <body>
     <div class="container">
         <h2 class="mt-5 mb-4 text-center">Add Car</h2>
-        <form action="/cars/save" method="post" th:object="${car}" class="center-form needs-validation" novalidate>
+        <form th:object="${car}" th:action="@{savecar}" action="#" method="post"class="center-form needs-validation" novalidate>
+        
             <div class="form-group">
                 <label for="model">Model:</label>
                 <input type="text" class="form-control small-input" id="model" th:field="*{model}" required>
                 <div class="invalid-feedback">Please provide a model.</div>
             </div>
             <div class="form-group">
-                <label for="year">Year:</label>
-                <input type="number" class="form-control small-input" id="year" th:field="*{year}" required>
+                <label for="modelyear">Year:</label>
+                <input type="number" class="form-control small-input" id="modelyear" th:field="*{modelyear}" required>
                 <div class="invalid-feedback">Please provide a valid year.</div>
             </div>
             <div class="form-group">
@@ -43,6 +44,7 @@
                 <div class="invalid-feedback">Please provide an image path.</div>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
+            <a href="/cars" class="btn btn-danger btn-sm">Check booklist</a>
         </form>
     </div>
 

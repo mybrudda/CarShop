@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import backend.CarShop.domain.CarEntity;
 import backend.CarShop.domain.CarRepository;
+import backend.CarShop.domain.CategoryRepository;
 
 @Controller
 public class CarController {
 
     @Autowired
     private CarRepository carRepository;
+
+    @Autowired
+    private CategoryRepository cRepository;
 
 
     @GetMapping("/cars")
@@ -27,6 +31,7 @@ public class CarController {
     @GetMapping("/addcar")
     public String showCarForm(Model model){
         model.addAttribute("car", new CarEntity());
+        model.addAttribute("categories", cRepository.findAll());
         return "AddCar";
     }
 

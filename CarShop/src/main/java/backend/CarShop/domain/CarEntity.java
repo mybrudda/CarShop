@@ -1,9 +1,13 @@
 package backend.CarShop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class CarEntity {
@@ -18,15 +22,29 @@ public class CarEntity {
     private String imagePath;
     private double price;
 
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public CarEntity() {
     }
 
-    public CarEntity(String model, int modelyear, String condition, String imagePath, double price) {
+    public CarEntity(String model, int modelyear, String condition, String imagePath, double price, Category category) {
         this.model = model;
         this.modelyear = modelyear;
         this.condition = condition;
         this.imagePath = imagePath;
         this.price = price;
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {

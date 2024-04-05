@@ -33,14 +33,14 @@ public class CarController {
     @PostMapping("/savecar")
     public String saveCar(CarEntity car) {
         carRepository.save(car);
-        return "redirect:cars";
+        return "redirect:/cars";
     }
 
 
     @GetMapping("/delete/{id}")
     public String deleteCar(@PathVariable("id") Long id, Model model){
         carRepository.deleteById(id);
-        return "redirect:cars";
+        return "redirect:/cars";
     }
 
     

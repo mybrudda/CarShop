@@ -16,6 +16,8 @@ import backend.CarShop.domain.CarEntity;
 import backend.CarShop.domain.CarRepository;
 import backend.CarShop.domain.Category;
 import backend.CarShop.domain.CategoryRepository;
+import backend.CarShop.domain.User;
+import backend.CarShop.domain.UserRepository;
 
 @SpringBootApplication
 public class CarShopApplication {
@@ -27,8 +29,15 @@ public class CarShopApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(CarRepository carRepository, CategoryRepository cRepository) {
+    public CommandLineRunner demo(CarRepository carRepository, CategoryRepository cRepository, UserRepository userRepository) {
         return (args) -> {
+
+            User user1 = new User("user", "$2a$10$75.v7G/paisjk9quQlxbLuP7c3IshYwzxhH07yR5zruEc7BIs3TSW", "user@gmail.com", "USER");
+            User user2 = new User("admin", "$2a$10$6VpB65zfI3kB0r9Jql/VS..j4SiGHTJUabO452/tovye6r2vsIZdq", "admin@gmail.com", "ADMIN");
+            userRepository.save(user1);
+            userRepository.save(user2);
+
+
             log.info("Adding demo data to the database...");
             // Create and save categories
             Category sedanCategory = new Category("Sedan");

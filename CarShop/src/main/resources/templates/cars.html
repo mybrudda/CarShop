@@ -32,7 +32,7 @@
                     <td th:text="${car.condition}"></td>
                     <td th:text="${car.price}"></td>
                     <td th:text="${car.category.name}"></td> 
-                    <td><a class="btn btn-danger btn-sm" th:href="@{/delete/{id}(id=${car.id})}">Delete</a></td>
+                    <td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger btn-sm" th:href="@{/delete/{id}(id=${car.id})}">Delete</a></td>
                 </tr>
             </tbody>
         </table>

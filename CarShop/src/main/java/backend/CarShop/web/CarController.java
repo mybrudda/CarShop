@@ -54,4 +54,11 @@ public class CarController {
         return "login";
     }
 
+    @RequestMapping("/logout")
+    public String logout(){
+        return "logout";
+    }
+
+
+
 }
